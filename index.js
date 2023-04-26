@@ -1,22 +1,13 @@
 import chalk from 'chalk';
+import axios from 'axios';
 
 console.log(chalk.blue('Hello world!'));
+import scripts from './scripts.js';
+import {configs} from './scripts.js'
+scripts();
+configs();
 
-// Combine styled and normal strings
-console.log(chalk.blue('Hello') + ' World' + chalk.red('!'));
-
-// Compose multiple styles using the chainable API
-console.log(chalk.blue.bgRed.bold('Hello world!'));
-
-// Pass in multiple arguments
-console.log(chalk.blue('Hello', 'World!', 'Foo', 'bar', 'biz', 'baz'));
-
-// Nest styles
-console.log(chalk.red('Hello', chalk.underline.bgBlue('world') + '!'));
-
-// Nest styles of the same type even (color, underline, background)
-console.log(chalk.green(
-	'I am a green line ' +
-	chalk.blue.underline.bold('with a blue substring') +
-	' that becomes green again!'
+axios.get("https://dog.ceo/api/breeds/image/random")
+.then (res=>(
+    console.log(res.data)
 ));
